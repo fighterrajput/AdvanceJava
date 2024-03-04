@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class TestInsert {
+public class TestDelete {
 	public static void main(String[] args) throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -12,10 +12,10 @@ public class TestInsert {
 
 		Statement stmt = conn.createStatement();
 
-		int i = stmt.executeUpdate("insert into marksheet values(11, 111, 'Raj', 78, 89, 99)");
+		int i = stmt.executeUpdate("delete from marksheet where roll_no = 111");
 
-		System.out.println("Data inserted=" + i);
+		System.out.println("data deleted=" + i);
 
 	}
 
-}	
+}

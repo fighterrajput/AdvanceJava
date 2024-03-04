@@ -4,18 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class TestInsert {
-	public static void main(String[] args) throws Exception {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+import com.mysql.cj.jdbc.Driver;
 
+public class TestAlter {
+	public static void main(String[] args) throws Exception {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
 		Statement stmt = conn.createStatement();
+		int i = stmt.executeUpdate("update marksheet set total = (physics+chemistry+maths) where id = 10");
 
-		int i = stmt.executeUpdate("insert into marksheet values(11, 111, 'Raj', 78, 89, 99)");
-
-		System.out.println("Data inserted=" + i);
+		System.out.println("data updated=" + i);
 
 	}
 
-}	
+}
