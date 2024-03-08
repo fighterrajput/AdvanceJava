@@ -23,7 +23,7 @@ public class TestMarksheet {
 
 	public static void testFindByPk() throws Exception {
 		MarksheetModel model = new MarksheetModel();
-		BeanBean bean = model.findByPk(1);
+		MarksheetBean bean = model.findByPk(1);
 
 		System.out.print("\t" + bean.getId());
 		System.out.print("\t" + bean.getRollNo());
@@ -42,7 +42,7 @@ public class TestMarksheet {
 	}
 
 	public static void testSearchDyanamic() throws Exception {
-		BeanBean bean = new BeanBean();
+		MarksheetBean bean = new MarksheetBean();
 		// bean.setId(6);
 		bean.setName("'ankit'");
 
@@ -51,7 +51,7 @@ public class TestMarksheet {
 
 		Iterator it = list.iterator();
 		while (it.hasNext()) {
-			bean = (BeanBean) it.next();
+			bean = (MarksheetBean) it.next();
 			System.out.print(bean.getId());
 			System.out.print("\t" + bean.getRollNo());
 			System.out.print("\t" + bean.getName());
@@ -68,7 +68,7 @@ public class TestMarksheet {
 	}
 
 	public static void testUpdate() throws Exception {
-		BeanBean bean = new BeanBean();
+		MarksheetBean bean = new MarksheetBean();
 		bean.setId(7);
 		bean.setRollNo(107);
 		bean.setName("Jay");
@@ -83,7 +83,7 @@ public class TestMarksheet {
 	}
 
 	public static void testAdd() throws Exception {
-		BeanBean bean = new BeanBean();
+		MarksheetBean bean = new MarksheetBean();
 		bean.setId(14);
 		bean.setRollNo(114);
 		bean.setName("Adarsh");

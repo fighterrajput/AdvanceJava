@@ -10,12 +10,12 @@ import java.util.List;
 import com.mysql.cj.protocol.Resultset;
 
 import in.co.rays.user.UserBean;
+import in.co.rays.util.JDBCDataSource;
 
 public class BeanModel {
 
 	public List search() throws Exception {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		Connection conn = JDBCDataSource.getConnection()
 		PreparedStatement ps = conn.prepareStatement("select * from user");
 		ResultSet rs = ps.executeQuery();
 		List list = new ArrayList();
@@ -32,14 +32,13 @@ public class BeanModel {
 			list.add(bean);
 
 		}
-
+conn.close();
 		return list;
 
 	}
 
 	public List searchDynamic(UserBean bean, int pageNo, int pageSize) throws Exception {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+		Connection conn = JDBCDataSource.getConnection()
 		StringBuffer sql = new StringBuffer("select * from user where 1=1");
 
 		if (bean != null) {
@@ -71,7 +70,7 @@ public class BeanModel {
 			list.add(bean);
 
 		}
-
+        conn.close();
 		return list;
 
 	}
